@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitnest Swap - Telegram Web App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .widget-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 10px;
+        }
+        
+        /* Estilos específicos para el iframe de SkipShift */
+        .skippyWidget {
+            border: 0px;
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            max-width: 440px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔄 Bitnest Swap</h1>
+        <p>Intercambio seguro Fiat ↔ Crypto</p>
+    </div>
+    
+    <div class="widget-container">
+        <iframe 
+            src="https://skipshift.io/?skipwidget&r=0x0e13Ba8ddD7Bf9532995a2067287bE2588793380" 
+            id="_RBX_SKIPSHIFT_WIDGET" 
+            class="skippyWidget"
+            allow="camera; microphone; payment">
+        </iframe>
+    </div>
+    
+    <div class="footer">
+        Powered by Bitnest Librarian & SkipShift
+    </div>
+
+    <script src="https://skipshift.io/widgetari/arbitor.js"></script>
+    
+    <!-- Script para integración con Telegram Web App -->
+    <script>
+        // Inicializar Telegram Web App
+        if (window.Telegram && Telegram.WebApp) {
+            Telegram.WebApp.expand();
+            Telegram.WebApp.enableClosingConfirmation();
+            
+            // Opcional: Cambiar color de la barra superior para que coincida con tu tema
+            Telegram.WebApp.setHeaderColor('#667eea');
+            Telegram.WebApp.setBackgroundColor('#667eea');
+        }
+    </script>
+</body>
+</html>
